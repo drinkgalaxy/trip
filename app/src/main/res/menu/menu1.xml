@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="자연과 힐링"
+        android:id="@+id/categoryBar1">
+    </item>
+
+    <item
+        android:title="도시와 쇼핑"
+        android:id="@+id/categoryBar2">
+    </item>
+
+    <item
+        android:title="역사와 문화"
+        android:id="@+id/categoryBar3">
+    </item>
+
+    <item
+        android:title="초기화"
+        android:id="@+id/resetBar">
+    </item>
+</menu>
