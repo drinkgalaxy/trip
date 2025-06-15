@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     LinearLayout main;
+    View dialogView;
 
     Button category1, category2, category3;
     ImageView[] imageViews = new ImageView[27];
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     TextView tripCostText, tripIntroText;
+    EditText inputPrice;
     CalcPrice calcPrice = new CalcPrice();
     ImageControl imageControl = new ImageControl();
 
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         category3 = findViewById(R.id.category3);
         tripCostText = findViewById(R.id.tripCostText);
         tripIntroText = findViewById(R.id.tripIntroText);
+        inputPrice = findViewById(R.id.inputPrice);
 
         // 이미지 findViewById for 문으로 등록
         for (int i = 0; i < imageViews.length; i++) {
@@ -141,6 +145,23 @@ public class MainActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.categoryBar3) {
             reset();
             imageControl.control(imageViews, 3);
+        } else if (item.getItemId() == R.id.recommendBar) {
+            dialogView = (View) View.inflate(MainActivity.this, R.layout.dialog, null);
+            AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+            dlg.setTitle("경비와 비슷한 여행지를 추천해드립니다.");
+            dlg.setView(dialogView);
+            dlg.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    inputPrice = (EditText) dialogView.findViewById(R.id.inputPrice);
+                }
+            });
+            dlg.setNegativeButton("취소", null);
+            dlg.show();
+
+            // 가격에 맞춰서 여행지 선택하는 함수 호출하고 계산 결과에 따라 tripCostText, tripIntroText 변경
+            tripCostText.setText("여행 경비는 : 원하는 가격");
+            tripIntroText.setText("원하는 여행지");
         }
 
         return true;

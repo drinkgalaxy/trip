@@ -19,4 +19,9 @@
         android:title="초기화"
         android:id="@+id/resetBar">
     </item>
+
+    <item
+        android:title="가격에 맞는 여행지 추천"
+        android:id="@+id/recommendBar">
+    </item>
 </menu>

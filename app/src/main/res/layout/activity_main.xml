@@ -276,11 +276,7 @@
                     </FrameLayout>
                 </TableRow>
             </TableLayout>
-
-
-
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -297,18 +293,20 @@
                 android:text="여행 경비는"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:layout_weight="2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:padding="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tripIntroText"
-                android:textSize="20dp"
-                android:text="여행지 소개는"/>
-        </LinearLayout>
+        <TextView
+            android:id="@+id/tripIntroText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여행지 소개는"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
 </LinearLayout>
