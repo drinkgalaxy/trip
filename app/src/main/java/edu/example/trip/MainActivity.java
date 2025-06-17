@@ -1,5 +1,7 @@
 package edu.example.trip;
 
+import static android.widget.Toast.LENGTH_SHORT;
+
 import android.content.DialogInterface;
 import android.opengl.Visibility;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -154,14 +157,28 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     inputPrice = (EditText) dialogView.findViewById(R.id.inputPrice);
+
+                    if ((inputPrice == null) || inputPrice.getText().toString().trim().isEmpty()) {
+                        Toast.makeText(MainActivity.this, "값을 입력한 후 확인을 눌러주세요,", LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    String input = inputPrice.getText().toString().trim();
+
+                    if (Integer.parseInt(input) < 70000) {
+                        Toast.makeText(MainActivity.this, "최소 금액은 7만원입니다.", LENGTH_SHORT).show();
+                    } else {
+                        // 가격에 맞춰서 여행지 선택하는 함수 호출하고 계산 결과에 따라 tripCostText, tripIntroText 변경
+                        InfoStore infoStore = new InfoStore();
+                        Place destination = infoStore.getDestination(input);
+
+                        tripCostText.setText(String.format("여행 경비는 : %s", String.valueOf(destination.getTripCost())));
+                        tripIntroText.setText(destination.getInformation());
+                    }
                 }
             });
             dlg.setNegativeButton("취소", null);
             dlg.show();
-
-            // 가격에 맞춰서 여행지 선택하는 함수 호출하고 계산 결과에 따라 tripCostText, tripIntroText 변경
-            tripCostText.setText("여행 경비는 : 원하는 가격");
-            tripIntroText.setText("원하는 여행지");
         }
 
         return true;
