@@ -3,7 +3,6 @@ package edu.example.trip;
 import static android.widget.Toast.LENGTH_SHORT;
 
 import android.content.DialogInterface;
-import android.opengl.Visibility;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -165,8 +164,10 @@ public class MainActivity extends AppCompatActivity {
 
                     String input = inputPrice.getText().toString().trim();
 
-                    if (Integer.parseInt(input) < 70000) {
+                    if (Long.parseLong(input) < 70000) {
                         Toast.makeText(MainActivity.this, "최소 금액은 7만원입니다.", LENGTH_SHORT).show();
+                    } else if (Long.parseLong(input) > 10000000L) {
+                        Toast.makeText(MainActivity.this, "최대 금액은 천만원입니다.", LENGTH_SHORT).show();
                     } else {
                         // 가격에 맞춰서 여행지 선택하는 함수 호출하고 계산 결과에 따라 tripCostText, tripIntroText 변경
                         InfoStore infoStore = new InfoStore();

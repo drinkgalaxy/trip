@@ -1,7 +1,5 @@
 package edu.example.trip;
 
-import android.widget.EditText;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,13 +49,13 @@ public class InfoStore {
     public Place getDestination(String input) {
 
         // tripCost 기준으로 기준값과 최대한 비슷한 금액을 추출한 후 그 금액의 Place 객체 return
-        int targetPrice = Integer.parseInt(input);
+        long targetPrice = Long.parseLong(input);
 
         Place closestPlace = null;
-        int minDifference = Integer.MAX_VALUE;
+        long minDifference = Integer.MAX_VALUE;
 
         for (Place place : placeInfoMap.values()) {
-            int diff = Math.abs(place.getTripCost() - targetPrice);
+            long diff = Math.abs(place.getTripCost() - targetPrice);
             if (diff < minDifference) {
                 minDifference = diff;
                 closestPlace = place;
