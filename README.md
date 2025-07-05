@@ -1,7 +1,7 @@
 ### 🎇 여행지 추천 안드로이드 앱 개발  
 모바일 프로그래밍 전공 수업 개인 프로젝트 
 
----
+
 
 ### 📌 주제 설명  
 Android Studio를 이용해 여행지를 추천해주는 앱 개발
@@ -9,13 +9,13 @@ Android Studio를 이용해 여행지를 추천해주는 앱 개발
 ### 🛠️ 사용 기술  
 Java
 
----
+
 
 ### 🖼️ 메인 화면  
 
 <img src="https://github.com/user-attachments/assets/da267625-0d50-40f7-aa31-d684c40c32a4" style="height:400px;" />
 
----
+
 
 ### ⚙️ 주요 기능 동작 원리 설명  
 
