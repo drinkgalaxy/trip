@@ -7,7 +7,7 @@
 Android Studio를 이용해 여행지를 추천해주는 앱 개발
 
 ### 🛠️ 사용 기술  
-**Java**
+Java
 
 ---
 
